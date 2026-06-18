@@ -29,6 +29,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--kana', type=str, required=True)
 parser.add_argument('--kanji', type=str, required=True)
 parser.add_argument('--mon', type=str, required=True)
+parser.add_argument('--output', type=str, required=True)
 args = parser.parse_args()
 
 kana = args.kana
@@ -270,7 +271,7 @@ for kana, kanji, mon in zip(processedDict["kana"], processedDict["kanji"], proce
     deck.add_note(note)
 
 # export
-genanki.Package(deck).write_to_file('japanese_mongolian.apkg')
+genanki.Package(deck).write_to_file(args.output+".apkg")
 
 
 # In[ ]:
